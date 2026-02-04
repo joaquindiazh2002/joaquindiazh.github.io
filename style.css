@@ -1,18 +1,12 @@
-/* Variables de color técnico */
 :root {
-    --primary-blue: #1a3a5f;    /* Azul planos técnicos */
-    --accent-blue: #00a8cc;     /* Azul cyan estructural */
+    --primary-blue: #1a3a5f;
+    --accent-blue: #00a8cc;
     --concrete-gray: #e0e0e0;
     --dark-bg: #0d1b2a;
 }
 
 body {
     background-color: var(--dark-bg);
-    /* Crea un efecto de cuadrícula de papel milimetrado */
-    background-image: 
-        linear-gradient(rgba(0, 168, 204, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 168, 204, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px;
     color: white;
     font-family: 'Ubuntu', sans-serif;
     display: flex;
@@ -21,71 +15,66 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    position: relative;
+}
+
+/* El fondo que se moverá */
+#grid-bg {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: 
+        linear-gradient(rgba(0, 168, 204, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 204, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    transition: transform 0.1s ease-out; /* Movimiento suave */
+}
+
+/* Efecto de luz que sigue al mouse */
+#light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                rgba(0, 168, 204, 0.15) 0%, 
+                transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
-    background-color: rgba(26, 58, 95, 0.95); /* Azul semitransparente */
+    background-color: rgba(13, 27, 42, 0.9);
     padding: 3rem;
-    border-left: 8px solid var(--accent-blue); /* Detalle de diseño */
+    border: 1px solid rgba(0, 168, 204, 0.3);
+    border-left: 8px solid var(--accent-blue);
     border-radius: 4px;
-    box-shadow: 10px 10px 0px rgba(0, 168, 204, 0.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     text-align: center;
     max-width: 500px;
-    z-index: 1;
+    z-index: 2;
+    transition: transform 0.2s ease;
 }
 
+/* Animación sutil de "respiración" para el icono */
 .icon-structure {
     font-size: 3rem;
     margin-bottom: 10px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
 }
 
-h1 {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 2.2rem;
-    letter-spacing: 3px;
-    margin: 0;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.divider {
-    height: 2px;
-    background: var(--accent-blue);
-    width: 60%;
-    margin: 15px auto;
-}
-
-h2 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--accent-blue);
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-}
-
-p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--concrete-gray);
-    margin-bottom: 20px;
-}
-
-.stats {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--accent-blue);
-    margin-bottom: 30px;
-}
-
-button {
-    background: transparent;
-    color: white;
-    border: 2px solid var(--accent-blue);
-    padding: 12px 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background: var(--accent-blue);
-    color: var(--dark-bg);
-}
+h1 { font-family: 'Roboto Mono', monospace; font-size: 2.2rem; letter-spacing: 3px; margin: 0; }
+.divider { height: 2px; background: var(--accent-blue); width: 60%; margin: 15px auto; }
+h2 { font-size: 1.1rem; color: var(--accent-blue); letter-spacing: 2px; margin-bottom: 25px; }
+button { background: transparent; color: white; border: 2px solid var(--accent-blue); padding: 12px 25px; cursor: pointer; transition: all 0.3s; }
+button:hover { background: var(--accent-blue); color: var(--dark-bg); box-shadow: 0 0 20px rgba(0, 168, 204, 0.5); }
