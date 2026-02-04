@@ -72,7 +72,33 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
+/* Estilos para los iconos sociales */
+.social-links {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
+.social-links a {
+    color: var(--concrete-gray);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efecto al pasar el mouse por los iconos */
+.social-links a:hover {
+    color: var(--accent-blue);
+    transform: translateY(-5px) scale(1.2);
+    filter: drop-shadow(0 0 8px var(--accent-blue));
+}
+
+/* Ajuste adicional para el contenedor */
+.container {
+    /* ... (asegúrate de que tenga perspective) */
+    perspective: 1000px;
+}
 h1 { font-family: 'Roboto Mono', monospace; font-size: 2.2rem; letter-spacing: 3px; margin: 0; }
 .divider { height: 2px; background: var(--accent-blue); width: 60%; margin: 15px auto; }
 h2 { font-size: 1.1rem; color: var(--accent-blue); letter-spacing: 2px; margin-bottom: 25px; }
