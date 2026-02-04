@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joaquín Díaz H| Ingeniero Civil</title>
+    <title>Joaquín Díaz | Ingeniero Estructural</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,14 +15,21 @@
     <div class="container" id="card">
         <header>
             <div class="icon-structure">🏗️</div>
-            <h1>JOAQUÍN DÍAZ H</h1>
+            <h1>JOAQUÍN DÍAZ HERRERA</h1>
             <div class="divider"></div>
             <h2>INGENIERO CIVIL</h2>
         </header>
         
         <p>Especialista en análisis sísmico, diseño de estructuras de alto desempeño y elementos finitos.</p>
         
-        <button onclick="window.location.href='mailto:tu-correo@ejemplo.com'">INICIAR CONSULTA</button>
+        <div class="social-links">
+            <a href="https://github.com/joaquindiazh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/joaquin-diaz-herrera-6410a5332/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/joaquin_10_diaz/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:joaquin.diaz.herrera@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <button onclick="window.location.href='mailto:joaquin.diaz.herrera@gmail.com'">INICIAR CONSULTA</button>
     </div>
 
     <script>
@@ -30,19 +38,16 @@
         const card = document.getElementById('card');
 
         document.addEventListener('mousemove', (e) => {
-            // Mover la luz de fondo
             light.style.setProperty('--x', e.clientX + 'px');
             light.style.setProperty('--y', e.clientY + 'px');
 
-            // Mover la cuadrícula (Paralaje)
             const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
             const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
             grid.style.transform = `translate(${moveX}px, ${moveY}px)`;
 
-            // Inclinación ligera de la tarjeta
             const cardX = (window.innerWidth / 2 - e.clientX) * 0.01;
             const cardY = (window.innerHeight / 2 - e.clientY) * 0.01;
-            card.style.transform = `rotateX(${cardY}deg) rotateY(${-cardX}deg)`;
+            card.style.transform = `perspective(1000px) rotateX(${cardY}deg) rotateY(${-cardX}deg)`;
         });
     </script>
 </body>
