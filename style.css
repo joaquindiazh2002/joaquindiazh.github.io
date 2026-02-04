@@ -1,43 +1,91 @@
+/* Variables de color técnico */
+:root {
+    --primary-blue: #1a3a5f;    /* Azul planos técnicos */
+    --accent-blue: #00a8cc;     /* Azul cyan estructural */
+    --concrete-gray: #e0e0e0;
+    --dark-bg: #0d1b2a;
+}
+
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    /* Crea un efecto de cuadrícula de papel milimetrado */
+    background-image: 
+        linear-gradient(rgba(0, 168, 204, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 204, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .container {
+    background-color: rgba(26, 58, 95, 0.95); /* Azul semitransparente */
+    padding: 3rem;
+    border-left: 8px solid var(--accent-blue); /* Detalle de diseño */
+    border-radius: 4px;
+    box-shadow: 10px 10px 0px rgba(0, 168, 204, 0.2);
     text-align: center;
-    padding: 2rem;
-    border: 2px solid #333;
-    border-radius: 15px;
-    background-color: #1e1e1e;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 500px;
+    z-index: 1;
+}
+
+.icon-structure {
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 h1 {
-    color: #00d4ff;
-    font-size: 2.5rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.divider {
+    height: 2px;
+    background: var(--accent-blue);
+    width: 60%;
+    margin: 15px auto;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--accent-blue);
+    letter-spacing: 2px;
+    margin-bottom: 25px;
 }
 
 p {
-    color: #bbbbbb;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--concrete-gray);
+    margin-bottom: 20px;
+}
+
+.stats {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    margin-bottom: 30px;
 }
 
 button {
-    background-color: #00d4ff;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    background: transparent;
+    color: white;
+    border: 2px solid var(--accent-blue);
+    padding: 12px 25px;
     font-weight: bold;
-    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #008fb3;
+    background: var(--accent-blue);
+    color: var(--dark-bg);
 }
