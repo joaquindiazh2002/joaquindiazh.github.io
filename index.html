@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joaquín Díaz | Ingeniero Civil Estructural</title>
+    <title>Joaquín Díaz | Ingeniero Estructural</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="blueprint-overlay"></div>
-    <div class="container">
+    <div id="grid-bg"></div>
+    <div id="light"></div>
+
+    <div class="container" id="card">
         <header>
             <div class="icon-structure">🏗️</div>
             <h1>JOAQUÍN DÍAZ</h1>
@@ -17,13 +19,31 @@
             <h2>INGENIERO CIVIL ESTRUCTURAL</h2>
         </header>
         
-        <p>Especialista en análisis sísmico, diseño de estructuras de acero y hormigón armado.</p>
+        <p>Especialista en análisis sísmico y diseño de estructuras de alto desempeño.</p>
         
-        <div class="stats">
-            <span>CÁLCULO</span> • <span>DISEÑO</span> • <span>OBRA</span>
-        </div>
-
-        <button onclick="window.location.href='mailto:tu-correo@ejemplo.com'">CONTACTAR PROYECTO</button>
+        <button onclick="window.location.href='mailto:tu-correo@ejemplo.com'">INICIAR CONSULTA</button>
     </div>
+
+    <script>
+        const grid = document.getElementById('grid-bg');
+        const light = document.getElementById('light');
+        const card = document.getElementById('card');
+
+        document.addEventListener('mousemove', (e) => {
+            // Mover la luz de fondo
+            light.style.setProperty('--x', e.clientX + 'px');
+            light.style.setProperty('--y', e.clientY + 'px');
+
+            // Mover la cuadrícula (Paralaje)
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.05;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.05;
+            grid.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+            // Inclinación ligera de la tarjeta
+            const cardX = (window.innerWidth / 2 - e.clientX) * 0.01;
+            const cardY = (window.innerHeight / 2 - e.clientY) * 0.01;
+            card.style.transform = `rotateX(${cardY}deg) rotateY(${-cardX}deg)`;
+        });
+    </script>
 </body>
 </html>
